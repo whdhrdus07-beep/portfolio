@@ -45,7 +45,7 @@ export const projects: Project[] = [
     tags: ["Branding", "Logo", "Print"],
     href: "#",
     github: "https://github.com/whdhrdus07-beep/todo-app",
-    color: "from-emerald-500/20 to-teal-500/10",
+    color: "from-primary/20 to-primary/5",
   },
   {
     title: "Todo App",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     tags: ["UI/UX", "Figma", "Web Design"],
     href: "https://todo-app-hawni.vercel.app",
     github: "https://github.com/whdhrdus07-beep/todo-app",
-    color: "from-violet-500/20 to-indigo-500/10",
+    color: "from-primary/15 to-primary-soft/10",
   },
   {
     title: "E-Commerce Web UI",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     tags: ["UI/UX", "Figma", "Web Design"],
     href: "#",
     github: "https://github.com/whdhrdus07-beep/todo-app",
-    color: "from-orange-500/20 to-rose-500/10",
+    color: "from-primary/10 to-primary-soft/5",
   },
 ];
 

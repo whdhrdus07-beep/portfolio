@@ -12,14 +12,14 @@ export default function About() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div className="relative">
-            <div className="aspect-square max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/20 to-cyan-500/10">
+            <div className="aspect-square max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-primary/20 to-primary/5">
               <div className="flex h-full items-center justify-center">
                 <span className="text-7xl font-bold tracking-tighter text-white/20">
                   {about.highlights[0]?.value ?? "3+"}
                 </span>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-emerald-500/20" />
+            <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-primary/20" />
           </div>
 
           <div>
@@ -60,7 +60,7 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-2xl">
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
         {label}
       </p>
       <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">

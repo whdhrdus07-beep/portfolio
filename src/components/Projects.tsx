@@ -17,7 +17,7 @@ function ProjectThumbnail({ project }: { project: (typeof projects)[0] }) {
 
   return (
     <div
-      className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${project.color ?? "from-emerald-500/10 to-cyan-500/5"}`}
+      className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${project.color ?? "from-primary/10 to-primary/5"}`}
     >
       <div className="relative">
         <span className="text-5xl font-light tracking-tighter text-white/[0.07]">
@@ -54,7 +54,7 @@ export default function Projects() {
               className="group flex flex-col rounded-2xl border border-border bg-surface transition-all hover:border-border-hover hover:bg-surface-hover"
             >
               <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 {project.image ? (
                   <img
                     src={project.image}
