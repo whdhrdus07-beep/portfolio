@@ -28,7 +28,12 @@ export default function RootLayout({
       lang="ko"
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#0b0f14] text-zinc-100">{children}</body>
+      <body className="min-h-screen bg-background text-foreground">
+        <a href="#main-content" className="skip-nav">
+          본문으로 바로가기
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

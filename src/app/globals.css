@@ -11,6 +11,7 @@
   --text-muted: #71717a;
   --accent: #10b981;
   --accent-hover: #34d399;
+  --ring: rgba(16, 185, 129, 0.5);
 }
 
 @theme inline {
@@ -19,6 +20,7 @@
   --color-foreground: var(--text-primary);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -26,6 +28,15 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 body {
@@ -39,4 +50,23 @@ body {
 ::selection {
   background: rgb(16 185 129 / 0.35);
   color: white;
+}
+
+/* Skip navigation */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: top 0.2s;
+}
+
+.skip-nav:focus {
+  top: 0;
 }
