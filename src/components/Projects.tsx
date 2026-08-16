@@ -1,5 +1,36 @@
 import { projects } from "@/data/portfolio";
 
+const PROJECT_ICONS: Record<string, string> = {
+  Branding: "◆",
+  Logo: "◈",
+  Print: "▣",
+  "UI/UX": "◐",
+  Figma: "⬡",
+  "Web Design": "□",
+  Poster: "▤",
+  Typography: "▥",
+  Illustration: "◉",
+};
+
+function ProjectThumbnail({ project }: { project: (typeof projects)[0] }) {
+  const icon = PROJECT_ICONS[project.tags[0]] ?? "◇";
+
+  return (
+    <div
+      className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${project.color ?? "from-emerald-500/10 to-cyan-500/5"}`}
+    >
+      <div className="relative">
+        <span className="text-5xl font-light tracking-tighter text-white/[0.07]">
+          {icon}
+        </span>
+        <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold tracking-tight text-white/15">
+          {project.title.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="px-6 py-24">
@@ -22,7 +53,8 @@ export default function Projects() {
               key={project.title}
               className="group flex flex-col rounded-2xl border border-border bg-surface transition-all hover:border-border-hover hover:bg-surface-hover"
             >
-              <div className={`relative mb-4 h-40 overflow-hidden rounded-xl bg-gradient-to-br ${project.color ?? "from-emerald-500/10 to-cyan-500/5"}`}>
+              <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 {project.image ? (
                   <img
                     src={project.image}
@@ -30,9 +62,7 @@ export default function Projects() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-4xl font-bold tracking-tighter text-white/10">
-                    {project.title.charAt(0)}
-                  </div>
+                  <ProjectThumbnail project={project} />
                 )}
               </div>
 
