@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { skills } from "@/data/portfolio";
 import type { SkillItem } from "@/data/portfolio";
 
 const TOTAL_DOTS = 20;
+const DOT_SIZE = 5;
+const GAP = 3;
+const STAGGER_DELAY = 80;
+const ANIM_DURATION = 400;
 
 function usePrefersReducedMotion(): boolean {
   const [prefers, setPrefers] = useState(false);
@@ -20,28 +24,25 @@ function usePrefersReducedMotion(): boolean {
 
 function SkillDots({ percent, animated }: { percent: number; animated: boolean }) {
   const filledCount = Math.round((percent / 100) * TOTAL_DOTS);
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const reduced = usePrefersReducedMotion();
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center" style={{ gap: GAP, height: DOT_SIZE }}>
       {Array.from({ length: TOTAL_DOTS }).map((_, i) => {
         const isFilled = animated && i < filledCount;
         return (
           <span
             key={i}
-            className="inline-block h-1.5 w-1.5 rounded-sm transition-colors duration-300"
+            className="inline-block rounded-[2px]"
             style={{
-              backgroundColor: isFilled
-                ? "var(--primary)"
-                : "var(--border)",
-              transform: isFilled && !prefersReducedMotion
-                ? "scale(1)"
-                : "scale(0.85)",
-              transitionDelay: animated && !prefersReducedMotion
-                ? `${i * 40}ms`
-                : "0ms",
+              width: DOT_SIZE,
+              height: DOT_SIZE,
+              backgroundColor: isFilled ? "var(--primary)" : "var(--border)",
+              transform: isFilled && !reduced ? "scale(1)" : "scale(0.6)",
+              transitionDelay: animated && !reduced ? `${i * STAGGER_DELAY}ms` : "0ms",
               transitionProperty: "background-color, transform",
-              transitionDuration: prefersReducedMotion ? "0ms" : "300ms",
+              transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms`,
+              transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
             }}
           />
         );
@@ -52,29 +53,25 @@ function SkillDots({ percent, animated }: { percent: number; animated: boolean }
 
 function SkillCounter({ percent, animated }: { percent: number; animated: boolean }) {
   const [displayed, setDisplayed] = useState(0);
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
     if (!animated) {
       setDisplayed(percent);
       return;
     }
-
-    const duration = 800;
+    const duration = 1200;
     const startTime = performance.now();
 
     function tick(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out curve
       const eased = 1 - Math.pow(1 - progress, 3);
       setDisplayed(Math.round(eased * percent));
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
+      if (progress < 1) requestAnimationFrame(tick);
     }
 
-    if (prefersReducedMotion) {
+    if (reduced) {
       setDisplayed(percent);
     } else {
       requestAnimationFrame(tick);
@@ -95,7 +92,6 @@ export default function Skills() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -105,9 +101,8 @@ export default function Skills() {
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.3 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
@@ -131,7 +126,7 @@ export default function Skills() {
           {skills.map((group) => (
             <div
               key={group.category}
-              className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300"
+              className="rounded-2xl border border-border bg-surface p-6"
             >
               <h3 className="mb-5 text-lg font-semibold text-white">
                 {group.category}
@@ -139,17 +134,11 @@ export default function Skills() {
               <ul className="space-y-4">
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
-                    <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center justify-between mb-2">
                       <span className="text-sm text-zinc-300">{item.name}</span>
-                      <SkillCounter
-                        percent={item.percent}
-                        animated={visible}
-                      />
+                      <SkillCounter percent={item.percent} animated={visible} />
                     </div>
-                    <SkillDots
-                      percent={item.percent}
-                      animated={visible}
-                    />
+                    <SkillDots percent={item.percent} animated={visible} />
                   </li>
                 ))}
               </ul>
