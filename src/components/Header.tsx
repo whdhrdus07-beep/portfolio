@@ -61,10 +61,10 @@ export default function Header() {
             </a>
           ))}
           <a
-            href={siteConfig.resumeUrl}
+            href="#contact"
             className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
           >
-            Resume
+            Contact
           </a>
         </nav>
 
@@ -119,11 +119,11 @@ export default function Header() {
             ))}
             <li>
               <a
-                href={siteConfig.resumeUrl}
+                href="#contact"
                 className="inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
                 onClick={() => setMenuOpen(false)}
               >
-                Resume
+                Contact
               </a>
             </li>
           </ul>
