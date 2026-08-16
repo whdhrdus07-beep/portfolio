@@ -44,7 +44,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-surface"
+            className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-white transition-all hover:border-accent-border hover:bg-accent-subtle hover:text-accent-soft"
           >
             연락하기
           </a>

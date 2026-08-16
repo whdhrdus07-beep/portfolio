@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* === Orange Brand Palette === */
-  --primary: #c2410c;
-  --primary-hover: #ea580c;
-  --primary-soft: #fb923c;
-  --primary-subtle: rgba(194, 65, 12, 0.08);
-  --primary-border: rgba(194, 65, 12, 0.2);
-  --primary-ring: rgba(194, 65, 12, 0.4);
+  /* === Orange Brand Palette (10% lighter than Claude #d97706) === */
+  --primary: #d97706;
+  --primary-hover: #e8931e;
+  --primary-deep: #92400e;
+  --primary-soft: #fbbf24;
+  --primary-subtle: rgba(217, 119, 6, 0.06);
+  --primary-border: rgba(217, 119, 6, 0.2);
+  --primary-ring: rgba(217, 119, 6, 0.4);
 
-  /* === Neutral Palette (warm tone) === */
+  /* === Warm Neutral Palette === */
   --bg-deep: #0c0a09;
   --bg-base: #0c0a09;
   --surface: rgba(255, 255, 255, 0.025);
@@ -31,8 +32,11 @@
   --color-foreground: var(--text-primary);
   --color-accent: var(--primary);
   --color-accent-hover: var(--primary-hover);
+  --color-accent-deep: var(--primary-deep);
   --color-accent-soft: var(--primary-soft);
-  --color-ring: var(--primary-ring);
+  --color-accent-subtle: var(--primary-subtle);
+  --color-accent-border: var(--primary-border);
+  --color-accent-ring: var(--primary-ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -81,4 +85,26 @@ body {
 
 .skip-nav:focus {
   top: 0;
+}
+
+/* Dot animation keyframes */
+@keyframes dotFill {
+  from {
+    background-color: var(--border);
+    transform: scale(0.8);
+  }
+  to {
+    background-color: var(--primary);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

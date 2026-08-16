@@ -69,18 +69,40 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills = [
+export interface SkillItem {
+  name: string;
+  percent: number;
+}
+
+export const skills: { category: string; items: SkillItem[] }[] = [
   {
     category: "Design",
-    items: ["UI/UX", "Branding", "Typography", "Layout", "Color System"],
+    items: [
+      { name: "UI/UX", percent: 90 },
+      { name: "Branding", percent: 85 },
+      { name: "Typography", percent: 80 },
+      { name: "Layout", percent: 88 },
+      { name: "Color System", percent: 82 },
+    ],
   },
   {
     category: "Tools",
-    items: ["Figma", "Photoshop", "Illustrator", "After Effects", "InDesign"],
+    items: [
+      { name: "Figma", percent: 92 },
+      { name: "Photoshop", percent: 88 },
+      { name: "Illustrator", percent: 85 },
+      { name: "After Effects", percent: 70 },
+      { name: "InDesign", percent: 78 },
+    ],
   },
   {
     category: "Web",
-    items: ["HTML/CSS", "Responsive Design", "Design System", "Prototyping"],
+    items: [
+      { name: "HTML/CSS", percent: 90 },
+      { name: "Responsive Design", percent: 85 },
+      { name: "Design System", percent: 80 },
+      { name: "Prototyping", percent: 85 },
+    ],
   },
 ];
 

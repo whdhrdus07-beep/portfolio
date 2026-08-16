@@ -147,7 +147,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={submitted}
-              className="mt-6 w-full rounded-full bg-accent py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-6 w-full rounded-full bg-accent py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-md hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitted ? "메일 앱을 확인해 주세요" : "메시지 보내기"}
             </button>

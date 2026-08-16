@@ -55,14 +55,14 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-white"
+              className="text-sm text-zinc-400 transition-colors hover:text-accent-soft"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-all hover:bg-accent-hover hover:shadow-md hover:shadow-primary/20"
           >
             Contact
           </a>
