@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navLinks, siteConfig } from "@/data/portfolio";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -14,11 +15,29 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [menuOpen]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-[#0b0f14]/80 backdrop-blur-xl"
+          ? "border-b border-border bg-background/80 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -28,7 +47,7 @@ export default function Header() {
           className="text-lg font-semibold tracking-tight text-white"
         >
           {siteConfig.name}
-          <span className="text-emerald-400">.</span>
+          <span className="text-accent">.</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -43,7 +62,7 @@ export default function Header() {
           ))}
           <a
             href={siteConfig.resumeUrl}
-            className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-emerald-400"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
           >
             Resume
           </a>
@@ -51,7 +70,8 @@ export default function Header() {
 
         <button
           type="button"
-          aria-label="메뉴 열기"
+          aria-label={menuOpen ? "메인 메뉴 닫기" : "메인 메뉴 열기"}
+          aria-expanded={menuOpen}
           className="rounded-lg p-2 text-zinc-300 md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -81,13 +101,16 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-white/10 bg-[#0b0f14]/95 px-6 py-4 md:hidden">
+        <nav
+          ref={menuRef}
+          className="border-t border-border bg-background/95 px-6 py-4 backdrop-blur-xl md:hidden"
+        >
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block text-zinc-300 hover:text-white"
+                  className="block text-zinc-300 transition-colors hover:text-white"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -97,7 +120,7 @@ export default function Header() {
             <li>
               <a
                 href={siteConfig.resumeUrl}
-                className="inline-block rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-black"
+                className="inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
                 onClick={() => setMenuOpen(false)}
               >
                 Resume

@@ -17,7 +17,7 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">
+        <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
           Portfolio
         </p>
         <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
@@ -38,18 +38,39 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-emerald-500/25"
           >
             프로젝트 보기
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
+            className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-surface"
           >
             연락하기
           </a>
         </div>
       </div>
+
+      <a
+        href="#about"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-zinc-500 transition-colors hover:text-zinc-300"
+        aria-label="아래로 스크롤"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-6 w-6 animate-bounce"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+      </a>
     </section>
   );
 }

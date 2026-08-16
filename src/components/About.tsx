@@ -7,14 +7,16 @@ export default function About() {
         <SectionHeading
           label="About"
           title="저를 소개합니다"
-          description="어떤 개발자인지, 무엇을 중요하게 생각하는지 알려드릴게요."
+          description="디자이너로서의 여정과, 일 태도를 소개합니다."
         />
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div className="relative">
             <div className="aspect-square max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/20 to-cyan-500/10">
-              <div className="flex h-full items-center justify-center text-6xl font-bold text-white/20">
-                {about.highlights[0]?.value ?? "Dev"}
+              <div className="flex h-full items-center justify-center">
+                <span className="text-7xl font-bold tracking-tighter text-white/20">
+                  {about.highlights[0]?.value ?? "3+"}
+                </span>
               </div>
             </div>
             <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-emerald-500/20" />
@@ -31,7 +33,7 @@ export default function About() {
               {about.highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                  className="rounded-xl border border-white/10 bg-surface p-4 transition-colors hover:border-white/15"
                 >
                   <dt className="text-xs uppercase tracking-wider text-zinc-500">
                     {item.label}
