@@ -46,7 +46,7 @@ export default function Contact() {
             <ul className="mt-8 space-y-4">
               <li>
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}`}
                   className="flex items-center gap-3 text-zinc-300 transition-colors hover:text-accent"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface" aria-hidden="true">

@@ -35,7 +35,7 @@ export default function Footer() {
             <span>{siteConfig.phone}</span>
           </a>
           <a
-            href={`mailto:${siteConfig.email}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}`}
             className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-200"
           >
             <MailIcon />
