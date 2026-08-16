@@ -14,8 +14,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | ${siteConfig.title}`,
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.title}`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.tagline,
+  keywords: ["portfolio", "designer", "UI/UX", "branding", "visual design", "web design", "김경환"],
+  authors: [{ name: siteConfig.name }],
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: "https://hwani-portfolio.vercel.app",
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.tagline,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.tagline,
+  },
 };
 
 export default function RootLayout({
