@@ -12,6 +12,7 @@
 /coverage
 
 # next.js build (we use .next_build/ as workaround)
+/.next/
 /.next_build/
 
 # production
