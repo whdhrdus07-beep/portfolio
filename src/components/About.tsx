@@ -35,10 +35,10 @@ export default function About() {
                   key={item.label}
                   className="neu-raised rounded-xl p-4"
                 >
-                  <dt className="text-xs uppercase tracking-wider text-muted">
+                  <dt className="text-xs uppercase tracking-wider text-[#333333]">
                     {item.label}
                   </dt>
-                  <dd className="mt-1 font-semibold text-foreground">{item.value}</dd>
+                  <dd className="mt-1 font-semibold text-[#666666]">{item.value}</dd>
                 </div>
               ))}
             </dl>

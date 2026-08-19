@@ -128,7 +128,7 @@ export default function Skills() {
               key={group.category}
               className="neu-raised rounded-2xl p-6"
             >
-              <h3 className="mb-5 text-lg font-semibold text-[#888888]">
+              <h3 className="mb-5 text-lg font-semibold text-[#888888] transition-colors hover:text-accent">
                 {group.category}
               </h3>
               <ul className="space-y-4">
