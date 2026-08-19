@@ -135,7 +135,7 @@ export default function Skills() {
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-[#666666]">{item.name}</span>
+                      <span className="text-sm text-foreground">{item.name}</span>
                       <SkillCounter percent={item.percent} animated={visible} />
                     </div>
                     <SkillDots percent={item.percent} animated={visible} />
