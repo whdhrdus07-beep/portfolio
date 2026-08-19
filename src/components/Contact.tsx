@@ -39,10 +39,10 @@ export default function Contact() {
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
               Contact
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               함께 일해요
             </h2>
-            <p className="mt-3 text-zinc-400">
+            <p className="mt-3 text-secondary">
               새로운 기회, 협업, 또는 프로젝트 문의를 환영합니다.
             </p>
 
@@ -52,28 +52,28 @@ export default function Contact() {
                   href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-zinc-300 transition-colors hover:text-accent"
+                  className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface" aria-hidden="true">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
                     <MailIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500">Email</span>
-                    <span className="text-sm">{siteConfig.email}</span>
+                    <span className="text-xs text-muted">Email</span>
+                    <span className="text-sm font-medium text-foreground">{siteConfig.email}</span>
                   </div>
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="flex items-center gap-3 text-zinc-300 transition-colors hover:text-accent"
+                  className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface" aria-hidden="true">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
                     <PhoneIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500">Phone</span>
-                    <span className="text-sm">{siteConfig.phone}</span>
+                    <span className="text-xs text-muted">Phone</span>
+                    <span className="text-sm font-medium text-foreground">{siteConfig.phone}</span>
                   </div>
                 </a>
               </li>
@@ -82,14 +82,14 @@ export default function Contact() {
                   href={KAKAOTALK_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-zinc-300 transition-colors hover:text-accent"
+                  className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface" aria-hidden="true">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
                     <KakaoIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500">KakaoTalk</span>
-                    <span className="text-sm">채팅 문의</span>
+                    <span className="text-xs text-muted">KakaoTalk</span>
+                    <span className="text-sm font-medium text-foreground">채팅 문의</span>
                   </div>
                 </a>
               </li>
@@ -102,19 +102,19 @@ export default function Contact() {
           >
             <div className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm text-zinc-400">
+                <label htmlFor="name" className="block text-sm text-secondary">
                   이름
                 </label>
                 <input
                   id="name"
                   name="name"
                   required
-                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-white outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="홍길동"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm text-zinc-400">
+                <label htmlFor="email" className="block text-sm text-secondary">
                   이메일
                 </label>
                 <input
@@ -122,14 +122,14 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-white outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="you@example.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm text-zinc-400"
+                  className="block text-sm text-secondary"
                 >
                   메시지
                 </label>
@@ -138,7 +138,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={5}
-                  className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-white outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="프로젝트나 협업에 대해 자유롭게 이야기해 주세요."
                 />
               </div>
@@ -147,7 +147,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={submitted}
-              className="mt-6 w-full rounded-full bg-accent py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-md hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-6 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitted ? "메일 앱을 확인해 주세요" : "메시지 보내기"}
             </button>

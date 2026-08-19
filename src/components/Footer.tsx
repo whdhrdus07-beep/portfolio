@@ -23,28 +23,28 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
           <a
             href={`tel:${siteConfig.phone}`}
-            className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-200"
+            className="flex items-center gap-2 text-secondary transition-colors hover:text-accent"
           >
             <PhoneIcon />
-            <span>{siteConfig.phone}</span>
+            <span className="text-foreground">{siteConfig.phone}</span>
           </a>
           <a
             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-200"
+            className="flex items-center gap-2 text-secondary transition-colors hover:text-accent"
           >
             <MailIcon />
-            <span>{siteConfig.email}</span>
+            <span className="text-foreground">{siteConfig.email}</span>
           </a>
           <a
             href={siteConfig.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-200"
+            className="flex items-center gap-2 text-secondary transition-colors hover:text-accent"
           >
             <GitHubIcon />
-            <span>GitHub</span>
+            <span className="text-foreground">GitHub</span>
           </a>
         </div>
       </div>
