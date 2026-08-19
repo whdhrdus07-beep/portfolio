@@ -13,6 +13,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} | ${siteConfig.title}`,
@@ -45,8 +47,13 @@ export default function RootLayout({
     <html
       lang="ko"
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
+      data-theme="light"
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-background text-foreground">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
+      <body className={`min-h-screen bg-background text-foreground`}>
         <a href="#main-content" className="skip-nav">
           본문으로 바로가기
         </a>

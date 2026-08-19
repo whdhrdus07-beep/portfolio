@@ -10,7 +10,7 @@
   --primary-border: rgba(217, 119, 6, 0.2);
   --primary-ring: rgba(217, 119, 6, 0.4);
 
-  /* === Warm Neutral Palette === */
+  /* === Warm Neutral Palette (Dark default) === */
   --bg-deep: #0c0a09;
   --bg-base: #0c0a09;
   --surface: rgba(255, 255, 255, 0.025);
@@ -21,6 +21,22 @@
   --text-primary: #f5f5f4;
   --text-secondary: #a8a29e;
   --text-muted: #78716c;
+  --text-faint: #44403c;
+}
+
+/* === Light Theme === */
+[data-theme="light"] {
+  --bg-deep: #fafaf9;
+  --bg-base: #fafaf9;
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-hover: rgba(0, 0, 0, 0.045);
+  --surface-elevated: rgba(0, 0, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.18);
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-muted: #78716c;
+  --text-faint: #a8a29e;
 }
 
 @theme inline {
@@ -30,6 +46,9 @@
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
   --color-foreground: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-faint: var(--text-faint);
   --color-accent: var(--primary);
   --color-accent-hover: var(--primary-hover);
   --color-accent-deep: var(--primary-deep);

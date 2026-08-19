@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { navLinks, siteConfig } from "@/data/portfolio";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +45,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#"
-          className="text-lg font-semibold tracking-tight text-white"
+          className="text-lg font-semibold tracking-tight text-foreground"
         >
           {siteConfig.name}
           <span className="text-accent">.</span>
@@ -55,7 +56,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-accent-soft"
+              className="text-sm text-secondary transition-colors hover:text-accent-soft"
             >
               {link.label}
             </a>
@@ -68,11 +69,13 @@ export default function Header() {
           </a>
         </nav>
 
+        <ThemeToggle />
+
         <button
           type="button"
           aria-label={menuOpen ? "메인 메뉴 닫기" : "메인 메뉴 열기"}
           aria-expanded={menuOpen}
-          className="rounded-lg p-2 text-zinc-300 md:hidden"
+          className="rounded-lg p-2 text-secondary hover:text-accent-soft md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
         >
           <svg
@@ -110,7 +113,7 @@ export default function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block text-zinc-300 transition-colors hover:text-white"
+                  className="block text-secondary transition-colors hover:text-foreground"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}

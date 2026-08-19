@@ -114,10 +114,10 @@ export default function Skills() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
             Skills
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             기술 스택
           </h2>
-          <p className="mt-3 text-zinc-400">
+          <p className="mt-3 text-secondary">
             프로젝트에서 사용해 온 기술과 도구들입니다.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function Skills() {
               key={group.category}
               className="rounded-2xl border border-border bg-surface p-6"
             >
-              <h3 className="mb-5 text-lg font-semibold text-white">
+              <h3 className="mb-5 text-lg font-semibold text-foreground">
                 {group.category}
               </h3>
               <ul className="space-y-4">
