@@ -35,7 +35,7 @@ export default function EcommercePage() {
         </Link>
 
         <div className="mt-8">
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/15 to-primary/5 p-8 sm:p-12">
+          <div className="neu-raised rounded-2xl p-8 sm:p-12">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
               Case Study
             </p>

@@ -28,7 +28,7 @@ export default function Gallery() {
               href={`/projects/${encodeURIComponent(
                 project.title.toLowerCase().replace(/[^a-z0-9가-힣]/g, "-")
               )}`}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:border-border-hover"
+              className="neu-raised group relative overflow-hidden rounded-2xl transition-all"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-transparent">
                 <div className="flex h-full items-center justify-center">
@@ -43,23 +43,23 @@ export default function Gallery() {
                   </span>
                 </div>
               </div>
-              <div className="p-5">
+              <div className="px-1 pb-5">
                 <h3 className="text-lg font-semibold text-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-2 text-sm text-secondary line-clamp-2">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-secondary">
                   {project.description}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <ul className="mt-4 flex flex-wrap gap-2">
                   {project.tags.slice(0, 3).map((tag) => (
-                    <span
+                    <li
                       key={tag}
-                      className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
+                      className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
                     >
                       {tag}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </a>
           ))}
