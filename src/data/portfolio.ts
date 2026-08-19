@@ -20,6 +20,11 @@ export interface Project {
   pdfUrl?: string;
 }
 
+export interface SkillItem {
+  name: string;
+  percent: number;
+}
+
 export const siteConfig = {
   name: "김경환",
   title: "웹 \xB7 시각 디자인",
