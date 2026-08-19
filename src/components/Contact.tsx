@@ -12,14 +12,16 @@ export default function Contact() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setSubmitted(true);
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "");
     const message = String(data.get("message") ?? "");
     const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
     const body = encodeURIComponent(message);
-    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setTimeout(() => {
+      window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&subject=${subject}&body=${body}`;
+    }, 100);
     form.reset();
     if (resetTimer.current) clearTimeout(resetTimer.current);
     resetTimer.current = setTimeout(() => setSubmitted(false), 5000);
