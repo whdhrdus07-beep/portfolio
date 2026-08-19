@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/portfolio";
+import OrbBackground from "@/components/OrbBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
       <body className={`min-h-screen bg-background text-foreground`}>
+        <OrbBackground />
         <a href="#main-content" className="skip-nav">
           본문으로 바로가기
         </a>
