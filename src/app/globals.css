@@ -209,21 +209,21 @@ body {
 [data-theme="light"] .neu-raised {
   background: #f6f5f2;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.13), -6px -6px 16px rgba(255, 255, 255, 0.9);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.10), -3px -3px 8px rgba(255, 255, 255, 0.9);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 [data-theme="light"] .neu-raised:hover {
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15), -4px -4px 12px rgba(255, 255, 255, 0.95);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.12), -2px -2px 6px rgba(255, 255, 255, 0.95);
   transform: translateY(-1px);
 }
 
 [data-theme="light"] .neu-inset {
   background: #f6f5f2;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.12), inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.08), inset -2px -2px 5px rgba(255, 255, 255, 0.95);
 }
 
 [data-theme="light"] .neu-inset:focus-within {
-  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.14), inset -3px -3px 8px rgba(255, 255, 255, 1);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.10), inset -2px -2px 4px rgba(255, 255, 255, 1);
 }

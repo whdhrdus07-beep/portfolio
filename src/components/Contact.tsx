@@ -54,7 +54,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
+                  <span className="neu-raised flex h-10 w-10 items-center justify-center rounded-lg text-accent" aria-hidden="true">
                     <MailIcon />
                   </span>
                   <div className="flex flex-col">
@@ -68,7 +68,7 @@ export default function Contact() {
                   href={`tel:${siteConfig.phone}`}
                   className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
+                  <span className="neu-raised flex h-10 w-10 items-center justify-center rounded-lg text-accent" aria-hidden="true">
                     <PhoneIcon />
                   </span>
                   <div className="flex flex-col">
@@ -84,7 +84,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground transition-colors hover:text-accent"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-accent" aria-hidden="true">
+                  <span className="neu-raised flex h-10 w-10 items-center justify-center rounded-lg text-accent" aria-hidden="true">
                     <KakaoIcon />
                   </span>
                   <div className="flex flex-col">

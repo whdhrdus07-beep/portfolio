@@ -33,7 +33,7 @@ export default function About() {
               {about.highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-border bg-surface p-4 transition-colors hover:border-border-hover"
+                  className="neu-raised rounded-xl p-4"
                 >
                   <dt className="text-xs uppercase tracking-wider text-muted">
                     {item.label}
