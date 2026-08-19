@@ -119,19 +119,54 @@ body {
 }
 
 /* Orb float keyframes (falls back to static when reduced motion is on) */
-@keyframes orbFloat {
+@keyframes orbDrift1 {
   0%,
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  20% {
+    transform: translate3d(4%, -6%, 0) scale(1.05);
+  }
+  45% {
+    transform: translate3d(-3%, -10%, 0) scale(0.95);
+  }
+  70% {
+    transform: translate3d(-6%, -3%, 0) scale(1.02);
+  }
+  90% {
+    transform: translate3d(2%, 4%, 0) scale(0.98);
+  }
+}
+
+@keyframes orbDrift2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
   25% {
-    transform: translate3d(3%, -4%, 0);
+    transform: translate3d(-5%, 3%, 0) scale(0.96);
   }
   50% {
-    transform: translate3d(-2%, -7%, 0);
+    transform: translate3d(3%, 7%, 0) scale(1.04);
   }
   75% {
-    transform: translate3d(-4%, -2%, 0);
+    transform: translate3d(6%, -2%, 0) scale(0.97);
+  }
+}
+
+@keyframes orbDrift3 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  30% {
+    transform: translate3d(-4%, -5%, 0) scale(1.03);
+  }
+  60% {
+    transform: translate3d(5%, 4%, 0) scale(0.94);
+  }
+  85% {
+    transform: translate3d(-2%, 6%, 0) scale(1.01);
   }
 }
 
