@@ -57,7 +57,7 @@ export default function Projects() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group flex flex-col rounded-2xl border border-border bg-surface transition-all hover:border-border-hover hover:bg-surface-hover"
+              className="neu-raised group flex flex-col rounded-2xl transition-all"
             >
               <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />

@@ -12,7 +12,7 @@ export default function About() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div className="relative">
-            <div className="aspect-square max-w-sm overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary/20 to-primary/5">
+            <div className="neu-raised aspect-square max-w-sm overflow-hidden rounded-2xl">
               <div className="flex h-full items-center justify-center">
                 <span className="text-7xl font-bold tracking-tighter text-foreground/20">
                   {about.highlights[0]?.value ?? "3+"}

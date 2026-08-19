@@ -98,7 +98,7 @@ export default function Contact() {
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-border bg-surface p-6 sm:p-8"
+            className="neu-raised rounded-2xl p-6 sm:p-8"
           >
             <div className="space-y-5">
               <div>
@@ -109,7 +109,7 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
-                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="홍길동"
                 />
               </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="you@example.com"
                 />
               </div>
