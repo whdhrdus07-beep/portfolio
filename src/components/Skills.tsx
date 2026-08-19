@@ -126,16 +126,16 @@ export default function Skills() {
           {skills.map((group) => (
             <div
               key={group.category}
-              className="rounded-2xl border border-border bg-surface p-6"
+              className="neu-raised rounded-2xl p-6"
             >
-              <h3 className="mb-5 text-lg font-semibold text-foreground">
+              <h3 className="mb-5 text-lg font-semibold text-[#888888]">
                 {group.category}
               </h3>
               <ul className="space-y-4">
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-zinc-300">{item.name}</span>
+                      <span className="text-sm text-[#666666]">{item.name}</span>
                       <SkillCounter percent={item.percent} animated={visible} />
                     </div>
                     <SkillDots percent={item.percent} animated={visible} />
