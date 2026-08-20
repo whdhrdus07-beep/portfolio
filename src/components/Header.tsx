@@ -62,10 +62,10 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="#projects"
             className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-all hover:bg-accent-hover hover:shadow-md hover:shadow-primary/20"
           >
-            Contact
+            Portfolio
           </a>
         </nav>
 

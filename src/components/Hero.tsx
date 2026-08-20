@@ -23,7 +23,7 @@ export default function Hero() {
         <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
           안녕하세요,
           <br />
-          <span className="hero-name bg-gradient-to-r from-primary-soft to-primary-hover bg-clip-text text-transparent">
+          <span className="hero-name text-accent">
             {siteConfig.name}
           </span>
           입니다.
