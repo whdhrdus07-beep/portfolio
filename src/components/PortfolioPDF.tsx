@@ -23,7 +23,7 @@ export default function PortfolioPDF() {
                   href="/portfolio.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-primary/25"
+                  className="neu-raised inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-accent transition-all hover:text-accent-hover"
                 >
                   <svg
                     className="h-4 w-4"
@@ -44,7 +44,7 @@ export default function PortfolioPDF() {
                 <a
                   href="/portfolio.pdf"
                   download
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:border-accent-border hover:bg-accent-subtle hover:text-accent-soft"
+                  className="neu-raised inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-accent transition-all hover:text-accent-hover"
                 >
                   <svg
                     className="h-4 w-4"
