@@ -79,7 +79,7 @@ function SkillCounter({ percent, animated }: { percent: number; animated: boolea
   }, [animated, percent]);
 
   return (
-    <span className="neu-raised flex h-9 w-12 items-center justify-center rounded-lg text-sm font-semibold tabular-nums text-accent">
+    <span className="neu-raised flex h-9 w-12 items-center justify-center rounded-lg text-sm font-semibold tabular-nums leading-none text-accent">
       {displayed}%
     </span>
   );
