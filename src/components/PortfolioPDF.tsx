@@ -4,7 +4,7 @@ export default function PortfolioPDF() {
   return (
     <section id="portfolio-pdf" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="neu-raised rounded-2xl p-8 sm:p-12">
+        <div className="pdf-card rounded-2xl p-8 sm:p-12">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
@@ -23,7 +23,7 @@ export default function PortfolioPDF() {
                   href="/portfolio.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="neu-raised inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-accent transition-all hover:text-accent-hover"
+                  className="pdf-btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all"
                 >
                   <svg
                     className="h-4 w-4"
@@ -44,7 +44,7 @@ export default function PortfolioPDF() {
                 <a
                   href="/portfolio.pdf"
                   download
-                  className="neu-raised inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-accent transition-all hover:text-accent-hover"
+                  className="pdf-btn-secondary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all"
                 >
                   <svg
                     className="h-4 w-4"
