@@ -205,6 +205,30 @@ body {
   filter: blur(140px) !important;
 }
 
+/* === Hero Name Animation === */
+.hero-name {
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: heroNameFill 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes heroNameFill {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name {
+    animation: none;
+    background-position: 0 0;
+  }
+}
+
 /* === Neumorphism Helpers (Light mode) === */
 [data-theme="light"] .neu-raised {
   background: #f6f5f2;
