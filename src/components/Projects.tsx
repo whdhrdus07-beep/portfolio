@@ -72,7 +72,7 @@ export default function Projects() {
                 )}
               </div>
 
-              <div className="flex flex-1 flex-col px-1">
+              <div className="flex flex-1 flex-col px-6 pt-6 pb-6">
                 <h3 className="text-xl font-semibold text-foreground">
                   {project.title}
                 </h3>
