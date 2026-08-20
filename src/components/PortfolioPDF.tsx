@@ -4,7 +4,7 @@ export default function PortfolioPDF() {
   return (
     <section id="portfolio-pdf" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="pdf-card rounded-2xl p-8 sm:p-12">
+        <div className="neu-raised rounded-2xl p-8 sm:p-12">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
