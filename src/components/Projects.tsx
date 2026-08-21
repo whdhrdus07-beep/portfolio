@@ -39,7 +39,7 @@ function getProjectSlug(title: string) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-6 py-24">
+    <section id="projects" className="px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
