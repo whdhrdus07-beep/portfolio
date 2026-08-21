@@ -54,7 +54,7 @@ export default function Projects() {
         </div>
 
         {/* 모바일: 가로 스와이프 / PC: 그리드 */}
-        <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 md:gap-6 lg:grid-cols-3">
+        <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 md:gap-6 lg:grid-cols-3" style={{ overscrollBehaviorX: 'contain', overscrollBehaviorY: 'none' } as any}>
           {projects.map((project) => (
             <article
               key={project.title}

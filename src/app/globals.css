@@ -241,12 +241,14 @@ body {
   }
 }
 
-/* 모바일 프로젝트 카드: 스와이프 스크롤바 숨김 */
+/* 모바일 프로젝트 카드: 스와이프 스크롤바 숨김 + 스크롤 체인 차단 */
 @media (max-width: 767px) {
   #projects .overflow-x-auto {
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: none;
   }
   #projects .overflow-x-auto::-webkit-scrollbar {
     display: none;
