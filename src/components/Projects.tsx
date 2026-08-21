@@ -53,71 +53,69 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* 모바일: 가로 스와이프 카드 / PC: 그리드 */}
-        <div className="mt-12 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3">
-            {projects.map((project) => (
-              <article
-                key={project.title}
-                className="neu-raised group flex w-[280px] shrink-0 snap-start flex-col rounded-2xl transition-all md:w-auto"
-              >
-                <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  {project.thumbnail || project.image ? (
-                    <img
-                      src={project.thumbnail || project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <ProjectThumbnail project={project} />
-                  )}
-                </div>
+        {/* 모바일: 가로 스와이프 / PC: 그리드 */}
+        <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 md:gap-6 lg:grid-cols-3">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="neu-raised group flex w-[280px] shrink-0 snap-start flex-col rounded-2xl transition-all md:w-auto"
+            >
+              <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                {project.thumbnail || project.image ? (
+                  <img
+                    src={project.thumbnail || project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <ProjectThumbnail project={project} />
+                )}
+              </div>
 
-                <div className="flex flex-1 flex-col px-5 pt-5 pb-5">
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  {project.role && (
-                    <p className="mt-1 text-xs text-muted">{project.role}</p>
-                  )}
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-secondary">
-                    {project.description}
-                  </p>
+              <div className="flex flex-1 flex-col px-5 pt-5 pb-5">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {project.title}
+                </h3>
+                {project.role && (
+                  <p className="mt-1 text-xs text-muted">{project.role}</p>
+                )}
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-secondary">
+                  {project.description}
+                </p>
 
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-5 flex gap-3 text-sm">
-                    <a
-                      href={`/projects/${getProjectSlug(project.title)}`}
-                      className="font-medium text-accent transition-colors hover:text-accent-hover"
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
                     >
-                      Case Study &rarr;
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 flex gap-3 text-sm">
+                  <a
+                    href={`/projects/${getProjectSlug(project.title)}`}
+                    className="font-medium text-accent transition-colors hover:text-accent-hover"
+                  >
+                    Case Study &rarr;
+                  </a>
+                  {project.href && project.href !== "#" && (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted transition-colors hover:text-secondary"
+                    >
+                      Demo
                     </a>
-                    {project.href && project.href !== "#" && (
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted transition-colors hover:text-secondary"
-                      >
-                        Demo
-                      </a>
-                    )}
-                  </div>
+                  )}
                 </div>
-              </article>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
