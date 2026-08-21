@@ -244,33 +244,55 @@ body {
 }
 
 .hero-orb-1 {
-  width: 22px;
-  height: 22px;
-  top: -10px;
-  right: -14px;
+  width: 14px;
+  height: 14px;
+  top: -8px;
+  right: -10px;
   opacity: 0;
   animation: heroOrbIn 0.7s ease-out forwards, heroOrbFloat1 4.5s ease-in-out infinite;
   animation-delay: 0.3s, 0.7s;
 }
 
 .hero-orb-2 {
-  width: 16px;
-  height: 16px;
-  bottom: -8px;
-  left: -18px;
+  width: 10px;
+  height: 10px;
+  bottom: -6px;
+  left: -14px;
   opacity: 0;
   animation: heroOrbIn 0.7s ease-out forwards, heroOrbFloat2 5.5s ease-in-out infinite;
   animation-delay: 0.5s, 0.9s;
 }
 
 .hero-orb-3 {
-  width: 12px;
-  height: 12px;
-  top: 40%;
-  right: -28px;
+  width: 8px;
+  height: 8px;
+  top: 35%;
+  right: -22px;
   opacity: 0;
   animation: heroOrbIn 0.7s ease-out forwards, heroOrbFloat3 6s ease-in-out infinite;
   animation-delay: 0.7s, 1.1s;
+}
+
+.hero-orb-4 {
+  width: 6px;
+  height: 6px;
+  top: 65%;
+  left: -16px;
+  opacity: 0;
+  background: rgba(217, 119, 6, 0.35);
+  animation: heroOrbIn 0.7s ease-out forwards, heroOrbFloat4 7s ease-in-out infinite;
+  animation-delay: 0.9s, 1.3s;
+}
+
+.hero-orb-5 {
+  width: 5px;
+  height: 5px;
+  top: 10%;
+  right: 20%;
+  opacity: 0;
+  background: rgba(251, 191, 36, 0.4);
+  animation: heroOrbIn 0.7s ease-out forwards, heroOrbFloat5 8s ease-in-out infinite;
+  animation-delay: 1.1s, 1.5s;
 }
 
 @keyframes heroOrbIn {
@@ -314,11 +336,74 @@ body {
   }
 }
 
+@keyframes heroOrbFloat4 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(12px, -14px, 0) scale(1.3);
+  }
+  70% {
+    transform: translate3d(-8px, 10px, 0) scale(0.8);
+  }
+}
+
+@keyframes heroOrbFloat5 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  35% {
+    transform: translate3d(-10px, -8px, 0) scale(1.2);
+  }
+  65% {
+    transform: translate3d(6px, 12px, 0) scale(0.85);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-orb {
     animation: none !important;
     opacity: 0.7 !important;
   }
+}
+
+/* === Mouse-following Orb === */
+.mouse-orb {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.04) 40%, transparent 70%);
+  filter: blur(24px);
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out, opacity 0.3s;
+  will-change: left, top;
+}
+
+[data-theme="light"] .mouse-orb {
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, rgba(217, 119, 6, 0.02) 40%, transparent 70%);
+  filter: blur(30px);
+}
+
+.mouse-orb__dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(217, 119, 6, 0.5);
+  transform: translate(-50%, -50%);
+  transition: left 0.08s ease-out, top 0.08s ease-out;
+  will-change: left, top;
+}
+
+[data-theme="light"] .mouse-orb__dot {
+  background: rgba(180, 83, 9, 0.4);
 }
 
 /* === Neumorphism Helpers (Light mode) === */

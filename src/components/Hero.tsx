@@ -30,6 +30,8 @@ export default function Hero() {
             <span className="hero-orb hero-orb-1" aria-hidden="true" />
             <span className="hero-orb hero-orb-2" aria-hidden="true" />
             <span className="hero-orb hero-orb-3" aria-hidden="true" />
+            <span className="hero-orb hero-orb-4" aria-hidden="true" />
+            <span className="hero-orb hero-orb-5" aria-hidden="true" />
           </span>
           입니다.
         </h1>

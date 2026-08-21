@@ -184,9 +184,10 @@ export const skills = [
   },
 ];
 
+// 순서: About → Skills → Projects → Contact
 export const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];

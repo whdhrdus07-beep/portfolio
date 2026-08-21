@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/portfolio";
 import OrbBackground from "@/components/OrbBackground";
+import MouseOrb from "@/components/MouseOrb";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 다크모드 기본값 + localStorage 동기화
-const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+// FOUC 방지: 렌더링 전에 테마를 동기적으로 적용하고 visibility 복원
+const themeBlock = `(function(){var t=localStorage.getItem('theme');var d=t==='light'?'light':'dark';document.documentElement.setAttribute('data-theme',d);document.documentElement.style.visibility='visible';})();`;
 
 export const metadata: Metadata = {
   title: {
@@ -51,12 +52,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
       data-theme="dark"
       suppressHydrationWarning
+      style={{ visibility: "hidden" }}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        {/* FOUC 방지: 페인트 전에 테마를 동기적으로 적용하고 visibility 복원 */}
+        <script dangerouslySetInnerHTML={{ __html: themeBlock }} />
       </head>
       <body className={`min-h-screen bg-background text-foreground`}>
         <OrbBackground />
+        <MouseOrb />
         <a href="#main-content" className="skip-nav">
           본문으로 바로가기
         </a>
