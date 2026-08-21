@@ -4,57 +4,65 @@ import { useEffect, useRef } from "react";
 
 export default function MouseOrb() {
   const glowRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
   const posRef = useRef({ x: -300, y: -300 });
   const visibleRef = useRef(false);
 
   useEffect(() => {
     const glow = glowRef.current;
-    const dot = dotRef.current;
-    if (!glow || !dot) return;
+    if (!glow) return;
 
     let rafId: number;
 
-    const onMove = (e: MouseEvent) => {
-      posRef.current = { x: e.clientX, y: e.clientY };
+    const onMove = (x: number, y: number) => {
+      posRef.current = { x, y };
       if (!visibleRef.current) {
         visibleRef.current = true;
         glow.style.opacity = "0.6";
-        dot.style.opacity = "0.5";
+      }
+    };
+
+    // 마우스
+    const onMouse = (e: MouseEvent) => onMove(e.clientX, e.clientY);
+    // 터치
+    const onTouch = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        onMove(e.touches[0].clientX, e.touches[0].clientY);
       }
     };
 
     const onLeave = () => {
       visibleRef.current = false;
       glow.style.opacity = "0";
-      dot.style.opacity = "0";
     };
 
-    // DOM 직접 조작 — React re-render 없이 60fps 부드럽게
     const animate = () => {
       const { x, y } = posRef.current;
       glow.style.left = `${x}px`;
       glow.style.top = `${y}px`;
-      dot.style.left = `${x}px`;
-      dot.style.top = `${y}px`;
       rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mousemove", onMouse, { passive: true });
+    window.addEventListener("touchmove", onTouch, { passive: true });
+    window.addEventListener("touchend", onLeave);
     document.addEventListener("mouseleave", onLeave);
     rafId = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mousemove", onMouse);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("touchend", onLeave);
       document.removeEventListener("mouseleave", onLeave);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
-    <>
-      <div ref={glowRef} className="mouse-orb" style={{ left: -300, top: -300 }} aria-hidden="true" />
-      <div ref={dotRef} className="mouse-orb__dot" style={{ left: -300, top: -300 }} aria-hidden="true" />
-    </>
+    <div
+      ref={glowRef}
+      className="mouse-orb"
+      style={{ left: -300, top: -300 }}
+      aria-hidden="true"
+    />
   );
 }

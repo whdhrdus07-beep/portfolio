@@ -205,32 +205,46 @@ body {
   filter: blur(140px) !important;
 }
 
-/* === Hero Name Animation === */
-.hero-name {
-  display: inline-block;
-  opacity: 0;
-  animation: heroNameAppear 0.9s ease-out forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes heroNameAppear {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 8px, 0) scale(0.96);
-    filter: blur(4px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
+/* === Hero Name === */
+@media (min-width: 768px) {
   .hero-name {
-    animation: none;
-    opacity: 1;
-    filter: none;
+    display: inline-block;
+    opacity: 0;
+    animation: heroNameAppear 0.9s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes heroNameAppear {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 8px, 0) scale(0.96);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+  }
+}
+
+/* 모바일: 블러 애니메이션 생략 - 깜빡임 방지 */
+@media (max-width: 767px) {
+  .hero-title span span {
+    animation: none !important;
+    filter: none !important;
+  }
+}
+
+/* 모바일 프로젝트 카드: 스와이프 스크롤바 숨김 */
+@media (max-width: 767px) {
+  #projects .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  #projects .overflow-x-auto::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -389,21 +403,12 @@ body {
   filter: blur(30px);
 }
 
-.mouse-orb__dot {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(217, 119, 6, 0.5);
-  transform: translate(-50%, -50%);
-  transition: left 0.08s ease-out, top 0.08s ease-out;
-  will-change: left, top;
-}
-
-[data-theme="light"] .mouse-orb__dot {
-  background: rgba(180, 83, 9, 0.4);
+/* 모바일에서 글로우 크기 축소 */
+@media (max-width: 767px) {
+  .mouse-orb {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 /* === Neumorphism Helpers (Light mode) === */

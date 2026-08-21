@@ -126,7 +126,7 @@ export default function Header() {
                 className="inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-accent-hover"
                 onClick={() => setMenuOpen(false)}
               >
-                Contact
+                Portfolio
               </a>
             </li>
           </ul>
