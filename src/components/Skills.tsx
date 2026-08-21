@@ -127,18 +127,17 @@ export default function Skills() {
               key={group.category}
               className="neu-raised rounded-2xl p-6"
             >
-              <h3 className="mb-6 text-lg font-semibold text-[#888888] transition-colors hover:text-accent">
+              <h3 className="mb-5 text-lg font-semibold text-[#888888] transition-colors hover:text-accent">
                 {group.category}
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-4">
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
-                    {/* 한 행: 이름 | 도트바 | 카운터 — 수직 가운데 정렬 */}
+                    {/* 1줄: 스킬 이름 */}
+                    <div className="text-sm text-foreground mb-2">{item.name}</div>
+                    {/* 2줄: 도트바 + 퍼센트 수직 가운데 정렬 */}
                     <div className="flex items-center gap-3">
-                      <span className="text-sm text-foreground w-16 shrink-0">{item.name}</span>
-                      <div className="flex-1">
-                        <SkillDots percent={item.percent} animated={visible} />
-                      </div>
+                      <SkillDots percent={item.percent} animated={visible} />
                       <SkillCounter percent={item.percent} animated={visible} />
                     </div>
                   </li>
