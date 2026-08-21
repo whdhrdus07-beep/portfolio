@@ -4,22 +4,35 @@ import { useEffect, useState } from "react";
 
 type Theme = "dark" | "light";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+function getStoredTheme(): Theme | null {
+  if (typeof window === "undefined") return null;
   const stored = localStorage.getItem("theme");
   if (stored === "dark" || stored === "light") return stored;
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return null;
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    setTheme(getInitialTheme());
+    // 항상 다크먼드로 시작 (FOUC 방지)
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+
+    // 2초 후 저장된 설정이 있으면 그쪽으로 전환
+    const delay = setTimeout(() => {
+      const stored = getStoredTheme();
+      if (stored && stored !== "dark") {
+        setTheme(stored);
+        document.documentElement.setAttribute("data-theme", stored);
+        localStorage.setItem("theme", stored);
+      }
+    }, 2000);
+
+    return () => clearTimeout(delay);
   }, []);
 
+  // 테마 변경 시 DOM + localStorage 동기화
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);

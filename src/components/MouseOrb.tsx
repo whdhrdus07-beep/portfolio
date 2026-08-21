@@ -1,61 +1,60 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function MouseOrb() {
-  const [pos, setPos] = useState({ x: -200, y: -200 });
-  const [visible, setVisible] = useState(false);
-  const rafRef = useRef<number>(0);
-  const mouseRef = useRef({ x: -200, y: -200 });
+  const glowRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef({ x: -300, y: -300 });
+  const visibleRef = useRef(false);
 
   useEffect(() => {
+    const glow = glowRef.current;
+    const dot = dotRef.current;
+    if (!glow || !dot) return;
+
+    let rafId: number;
+
     const onMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-      if (!visible) setVisible(true);
+      posRef.current = { x: e.clientX, y: e.clientY };
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        glow.style.opacity = "0.6";
+        dot.style.opacity = "0.5";
+      }
     };
 
     const onLeave = () => {
-      setVisible(false);
+      visibleRef.current = false;
+      glow.style.opacity = "0";
+      dot.style.opacity = "0";
     };
 
+    // DOM 직접 조작 — React re-render 없이 60fps 부드럽게
     const animate = () => {
-      setPos({ ...mouseRef.current });
-      rafRef.current = requestAnimationFrame(animate);
+      const { x, y } = posRef.current;
+      glow.style.left = `${x}px`;
+      glow.style.top = `${y}px`;
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      rafId = requestAnimationFrame(animate);
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseleave", onLeave);
-    rafRef.current = requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseleave", onLeave);
-      cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(rafId);
     };
-  }, [visible]);
+  }, []);
 
   return (
     <>
-      {/* 부드러운 글로우 (딜레이 있음) */}
-      <div
-        className="mouse-orb"
-        style={{
-          left: `${pos.x}px`,
-          top: `${pos.y}px`,
-          opacity: visible ? 0.7 : 0,
-        }}
-        aria-hidden="true"
-      />
-      {/* 따라다니는 점 */}
-      <div
-        className="mouse-orb__dot"
-        style={{
-          left: `${pos.x}px`,
-          top: `${pos.y}px`,
-          opacity: visible ? 0.6 : 0,
-        }}
-        aria-hidden="true"
-      />
+      <div ref={glowRef} className="mouse-orb" style={{ left: -300, top: -300 }} aria-hidden="true" />
+      <div ref={dotRef} className="mouse-orb__dot" style={{ left: -300, top: -300 }} aria-hidden="true" />
     </>
   );
 }
