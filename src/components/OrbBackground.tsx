@@ -1,12 +1,12 @@
 "use client";
 
 const DRIFTS = [
-  { name: "orbDrift1", size: 420, x: "12%", y: "18%", opacity: 0.14, blur: 100, duration: 18, delay: 0 },
-  { name: "orbDrift2", size: 340, x: "68%", y: "15%", opacity: 0.11, blur: 90, duration: 22, delay: 2 },
-  { name: "orbDrift3", size: 520, x: "45%", y: "50%", opacity: 0.10, blur: 130, duration: 26, delay: 5 },
-  { name: "orbDrift1", size: 280, x: "18%", y: "62%", opacity: 0.12, blur: 80, duration: 20, delay: 3 },
-  { name: "orbDrift2", size: 400, x: "75%", y: "68%", opacity: 0.09, blur: 110, duration: 24, delay: 7 },
-  { name: "orbDrift3", size: 220, x: "35%", y: "32%", opacity: 0.07, blur: 70, duration: 16, delay: 1 },
+  { name: "orbDrift1", size: 560, x: "8%", y: "12%", opacity: 0.13, blur: 140, duration: 22, delay: 0 },
+  { name: "orbDrift2", size: 340, x: "72%", y: "10%", opacity: 0.16, blur: 90, duration: 24, delay: 2 },
+  { name: "orbDrift3", size: 680, x: "42%", y: "48%", opacity: 0.11, blur: 160, duration: 28, delay: 5 },
+  { name: "orbDrift1", size: 260, x: "15%", y: "65%", opacity: 0.14, blur: 70, duration: 20, delay: 3 },
+  { name: "orbDrift2", size: 480, x: "78%", y: "72%", opacity: 0.10, blur: 120, duration: 26, delay: 7 },
+  { name: "orbDrift3", size: 180, x: "55%", y: "25%", opacity: 0.15, blur: 50, duration: 18, delay: 1 },
 ];
 
 export default function OrbBackground() {

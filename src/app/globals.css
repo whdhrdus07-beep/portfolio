@@ -246,7 +246,9 @@ body {
   height: 18px;
   top: -8px;
   right: -12px;
-  animation: heroOrb1 5s ease-in-out infinite;
+  opacity: 0;
+  animation: heroOrbAppear 0.8s ease-out forwards, heroOrb1 5s ease-in-out infinite;
+  animation-delay: 0.6s, 1.4s;
 }
 
 .hero-orb-2 {
@@ -254,7 +256,9 @@ body {
   height: 12px;
   bottom: -6px;
   left: -16px;
-  animation: heroOrb2 6s ease-in-out infinite;
+  opacity: 0;
+  animation: heroOrbAppear 0.8s ease-out forwards, heroOrb2 6s ease-in-out infinite;
+  animation-delay: 0.9s, 1.7s;
 }
 
 .hero-orb-3 {
@@ -262,7 +266,20 @@ body {
   height: 14px;
   top: 50%;
   right: -24px;
-  animation: heroOrb3 7s ease-in-out infinite;
+  opacity: 0;
+  animation: heroOrbAppear 0.8s ease-out forwards, heroOrb3 7s ease-in-out infinite;
+  animation-delay: 1.2s, 2s;
+}
+
+@keyframes heroOrbAppear {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 @keyframes heroOrb1 {
@@ -369,20 +386,20 @@ body {
   background: var(--primary);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 6px 6px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 5px 5px 12px rgba(0, 0, 0, 0.28);
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 [data-theme="dark"] .pdf-btn-primary:hover {
   background: var(--primary-hover);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 4px 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24), 3px 3px 9px rgba(0, 0, 0, 0.32);
 }
 
 [data-theme="dark"] .pdf-btn-secondary {
   background: rgba(255, 255, 255, 0.06);
   color: #f5f5f4;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 6px 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.17), 5px 5px 12px rgba(0, 0, 0, 0.23);
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
