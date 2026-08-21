@@ -19,7 +19,10 @@ export default function About() {
                 </span>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-primary/20" />
+            {/* 뒤쪽 흐림 레이어 - 깊이감 */}
+            <div className="absolute -bottom-6 -right-6 -z-20 h-full w-full rounded-2xl bg-accent/[0.04] blur-md" />
+            {/* 중간 글로우 레이어 */}
+            <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-accent/20 bg-accent/[0.06] backdrop-blur-[1px]" />
           </div>
 
           <div>
@@ -35,10 +38,10 @@ export default function About() {
                   key={item.label}
                   className="neu-raised rounded-xl p-4"
                 >
-                  <dt className="text-xs uppercase tracking-wider text-[#333333]">
+                  <dt className="text-xs uppercase tracking-wider text-muted">
                     {item.label}
                   </dt>
-                  <dd className="mt-1 font-semibold text-[#666666]">{item.value}</dd>
+                  <dd className="mt-1 font-semibold text-foreground">{item.value}</dd>
                 </div>
               ))}
             </dl>

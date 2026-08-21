@@ -16,9 +16,12 @@ export default function Contact() {
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
     const message = String(data.get("message") ?? "");
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(message);
+    const subject = encodeURIComponent(`[${siteConfig.name}] 포트폴리오 문의 - ${name}`);
+    const body = encodeURIComponent(
+      `보낸 사람: ${name} <${email}>\n\n${message}`,
+    );
     setTimeout(() => {
       window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&subject=${subject}&body=${body}`;
     }, 100);
@@ -44,7 +47,7 @@ export default function Contact() {
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               함께 일해요
             </h2>
-            <p className="mt-3 text-secondary">
+            <p className="mt-3 text-foreground">
               새로운 기회, 협업, 또는 프로젝트 문의를 환영합니다.
             </p>
 
@@ -60,7 +63,7 @@ export default function Contact() {
                     <MailIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-muted">Email</span>
+                    <span className="text-xs text-foreground">Email</span>
                     <span className="text-sm font-medium text-foreground">{siteConfig.email}</span>
                   </div>
                 </a>
@@ -74,7 +77,7 @@ export default function Contact() {
                     <PhoneIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-muted">Phone</span>
+                    <span className="text-xs text-foreground">Phone</span>
                     <span className="text-sm font-medium text-foreground">{siteConfig.phone}</span>
                   </div>
                 </a>
@@ -90,7 +93,7 @@ export default function Contact() {
                     <KakaoIcon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-xs text-muted">KakaoTalk</span>
+                    <span className="text-xs text-foreground">KakaoTalk</span>
                     <span className="text-sm font-medium text-foreground">채팅 문의</span>
                   </div>
                 </a>
@@ -104,19 +107,19 @@ export default function Contact() {
           >
             <div className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm text-secondary">
+                <label htmlFor="name" className="block text-sm text-foreground font-medium">
                   이름
                 </label>
                 <input
                   id="name"
                   name="name"
                   required
-                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-all focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="홍길동"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm text-secondary">
+                <label htmlFor="email" className="block text-sm text-foreground font-medium">
                   이메일
                 </label>
                 <input
@@ -124,14 +127,14 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
-                  placeholder="you@example.com"
+                  className="neu-inset mt-2 w-full rounded-lg px-4 py-3 text-foreground outline-none transition-all focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  placeholder="you@gmail.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm text-secondary"
+                  className="block text-sm text-foreground font-medium"
                 >
                   메시지
                 </label>
@@ -140,7 +143,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={5}
-                  className="neu-inset mt-2 w-full resize-none rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50 placeholder:text-muted"
+                  className="neu-inset mt-2 w-full resize-none rounded-lg px-4 py-3 text-foreground outline-none transition-all focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
                   placeholder="프로젝트나 협업에 대해 자유롭게 이야기해 주세요."
                 />
               </div>
@@ -149,9 +152,27 @@ export default function Contact() {
             <button
               type="submit"
               disabled={submitted}
-              className="mt-6 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+              className="group mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(var(--accent-rgb),0.35)] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
             >
-              {submitted ? "메일 앱을 확인해 주세요" : "메시지 보내기"}
+              {submitted ? (
+                "메일 앱을 확인해 주세요"
+              ) : (
+                <>
+                  <span>메시지 보내기</span>
+                  <svg
+                    className="h-4 w-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </>
+              )}
             </button>
           </form>
         </div>
