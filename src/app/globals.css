@@ -209,7 +209,7 @@ body {
 .hero-name {
   display: inline-block;
   opacity: 0;
-  animation: heroNameAppear 0.9s ease-out forwards;
+  animation: heroNameAppear 1s ease-out forwards;
   animation-delay: 0.5s;
 }
 
@@ -223,6 +223,13 @@ body {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
     filter: blur(0);
+  }
+}
+
+/* 모바일: 2초 딜레이 후 블러 제거 — 다크 시작 플래시와 겹치지 않게 */
+@media (max-width: 767px) {
+  .hero-name {
+    animation-delay: 2.2s;
   }
 }
 
