@@ -227,6 +227,72 @@ body {
     animation: none;
     background-position: 0 0;
   }
+  .hero-orb {
+    animation: none !important;
+  }
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(217, 119, 6, 0.35);
+  filter: blur(18px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-orb-1 {
+  width: 18px;
+  height: 18px;
+  top: -8px;
+  right: -12px;
+  animation: heroOrb1 5s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+  width: 12px;
+  height: 12px;
+  bottom: -6px;
+  left: -16px;
+  animation: heroOrb2 6s ease-in-out infinite;
+}
+
+.hero-orb-3 {
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  right: -24px;
+  animation: heroOrb3 7s ease-in-out infinite;
+}
+
+@keyframes heroOrb1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6px, -8px, 0) scale(1.2);
+  }
+}
+
+@keyframes heroOrb2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-6px, 6px, 0) scale(1.1);
+  }
+}
+
+@keyframes heroOrb3 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4px, 4px, 0) scale(1.15);
+  }
 }
 
 /* === Neumorphism Helpers (Light mode) === */
@@ -256,19 +322,19 @@ body {
 [data-theme="dark"] .neu-raised {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 4px 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18), 4px 4px 10px rgba(0, 0, 0, 0.22);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 [data-theme="dark"] .neu-raised:hover {
   background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 3px 3px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.22), 3px 3px 8px rgba(0, 0, 0, 0.26);
 }
 
 [data-theme="dark"] .neu-inset {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.05);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.22), inset -2px -2px 5px rgba(255, 255, 255, 0.04);
 }
 
 /* === Full Portfolio Buttons (Light mode) === */

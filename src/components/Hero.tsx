@@ -20,11 +20,16 @@ export default function Hero() {
         <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
           Portfolio
         </p>
-        <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+        <h1 className="hero-title relative max-w-3xl text-5xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
           안녕하세요,
           <br />
-          <span className="hero-name text-accent">
-            {siteConfig.name}
+          <span className="relative inline-block">
+            <span className="hero-name text-accent">
+              {siteConfig.name}
+            </span>
+            <span className="hero-orb hero-orb-1" aria-hidden="true" />
+            <span className="hero-orb hero-orb-2" aria-hidden="true" />
+            <span className="hero-orb hero-orb-3" aria-hidden="true" />
           </span>
           입니다.
         </h1>

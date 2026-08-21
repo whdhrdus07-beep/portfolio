@@ -140,7 +140,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={5}
-                  className="neu-inset mt-2 w-full resize-none rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                  className="neu-inset mt-2 w-full resize-none rounded-lg px-4 py-3 text-foreground outline-none transition-colors focus:border-accent/50 focus:ring-1 focus:ring-accent/50 placeholder:text-muted"
                   placeholder="프로젝트나 협업에 대해 자유롭게 이야기해 주세요."
                 />
               </div>
