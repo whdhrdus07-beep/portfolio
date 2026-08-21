@@ -24,7 +24,7 @@ export default function Hero() {
           안녕하세요,
           <br />
           <span className="relative inline-block">
-            <span className="text-accent">
+            <span className="hero-name text-accent">
               {siteConfig.name}
             </span>
             <span className="hero-orb hero-orb-1" aria-hidden="true" />

@@ -205,34 +205,32 @@ body {
   filter: blur(140px) !important;
 }
 
-/* === Hero Name === */
-@media (min-width: 768px) {
-  .hero-name {
-    display: inline-block;
-    opacity: 0;
-    animation: heroNameAppear 0.9s ease-out forwards;
-    animation-delay: 0.5s;
-  }
+/* === Hero Name Animation === */
+.hero-name {
+  display: inline-block;
+  opacity: 0;
+  animation: heroNameAppear 0.9s ease-out forwards;
+  animation-delay: 0.5s;
+}
 
-  @keyframes heroNameAppear {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 8px, 0) scale(0.96);
-      filter: blur(4px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-      filter: blur(0);
-    }
+@keyframes heroNameAppear {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.96);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
   }
 }
 
-/* 모바일: 블러 애니메이션 생략 - 깜빡임 방지 */
-@media (max-width: 767px) {
-  .hero-title span span {
-    animation: none !important;
-    filter: none !important;
+@media (prefers-reduced-motion: reduce) {
+  .hero-name {
+    animation: none;
+    opacity: 1;
+    filter: none;
   }
 }
 
