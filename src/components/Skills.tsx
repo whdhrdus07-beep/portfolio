@@ -15,7 +15,7 @@ function usePrefersReducedMotion(): boolean {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefers(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefers(e.matches);
+    const handler = (e: MediaQueryListEvent) > setPrefers(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -41,12 +41,12 @@ function SkillDots({ percent, animated }: { percent: number; animated: boolean }
               transform: isFilled && !reduced ? "scale(1)" : "scale(0.6)",
               transitionDelay: animated && !reduced ? `${i * STAGGER_DELAY}ms` : "0ms",
               transitionProperty: "background-color, transform",
-              transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms",
+              transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms`,
               transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
             }}
-          );
+          />
         );
-      })}
+      })
     </div>
   );
 }
@@ -79,7 +79,7 @@ function SkillCounter({ percent, animated }: { percent: number; animated: boolea
   }, [animated, percent]);
 
   return (
-    <span className="neu-raised flex h-12 w-16 items-center justify-center rounded-lg bg-neutral-100/5 text-sm font-semibold tabular-nums leading-relaxed text-accent">
+    <span className="neu-raised flex h-9 w-12 items-center justify-center rounded-lg text-sm font-semibold tabular-nums text-accent">
       {displayed}%
     </span>
   );
@@ -136,8 +136,10 @@ export default function Skills() {
                   <li key={item.name}>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm text-[#666666]">{item.name}</span>
-                      <SkillCounter percent={item.percent} animated={visible} />
-                      <SkillDots percent={item.percent} animated={visible} />
+                      <div className="flex items-center justify-between mb-2">
+                        <SkillCounter percent={item.percent} animated={visible} />
+                        <SkillDots percent={item.percent} animated={visible} />
+                      </div>
                     </div>
                   </li>
                 ))}
