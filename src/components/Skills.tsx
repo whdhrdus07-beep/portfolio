@@ -7,6 +7,7 @@ import type { SkillItem } from "@/data/portfolio";
 const TOTAL_DOTS = 20;
 const DOT_SIZE = 5;
 const GAP = 3;
+const STAGGER_DELAY = 80;
 const ANIM_DURATION = 400;
 
 function usePrefersReducedMotion(): boolean {
@@ -38,7 +39,7 @@ function SkillDots({ percent, animated }: { percent: number; animated: boolean }
               height: DOT_SIZE,
               backgroundColor: isFilled ? "var(--primary)" : "var(--border)",
               transform: isFilled && !reduced ? "scale(1)" : "scale(0.6)",
-              transitionDelay: animated && !reduced ? `${i * 40}ms` : "0ms",
+              transitionDelay: animated && !reduced ? `${i * STAGGER_DELAY}ms` : "0ms",
               transitionProperty: "background-color, transform",
               transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms`,
               transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
@@ -78,7 +79,7 @@ function SkillCounter({ percent, animated }: { percent: number; animated: boolea
   }, [animated, percent]);
 
   return (
-    <span className="neu-raised flex h-9 w-12 items-center justify-center rounded-lg text-sm font-semibold tabular-nums leading-none text-accent shrink-0">
+    <span className="neu-raised flex h-9 w-12 items-center justify-center rounded-lg bg-neutral-100/5 text-sm font-semibold tabular-nums leading-none text-accent">
       {displayed}%
     </span>
   );
@@ -133,12 +134,10 @@ export default function Skills() {
               <ul className="space-y-4">
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
-                    {/* 1줄: 스킬 이름 */}
-                    <div className="text-sm text-foreground mb-2">{item.name}</div>
-                    {/* 2줄: 도트바 + 퍼센트 수직 가운데 정렬 */}
-                    <div className="flex items-center gap-3">
-                      <SkillDots percent={item.percent} animated={visible} />
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-[#666666]">{item.name}</span>
                       <SkillCounter percent={item.percent} animated={visible} />
+                      <SkillDots percent={item.percent} animated={visible} />
                     </div>
                   </li>
                 ))}
