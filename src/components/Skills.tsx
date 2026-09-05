@@ -134,14 +134,11 @@ export default function Skills() {
               <ul className="space-y-4">
                 {group.items.map((item: SkillItem) => (
                   <li key={item.name}>
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex flex-col">
                       <span className="text-sm text-[#666666]">{item.name}</span>
-                      <div className="flex items-center justify-between mb-2">
-                        <SkillCounter percent={item.percent} animated={visible} />
-                        <SkillDots percent={item.percent} animated={visible} />
-                      </div>
+                      <SkillCounter percent={item.percent} animated={visible} />
                     </div>
-                  </li>
+                    <SkillDots percent={item.percent} animated={visible} />
                 ))}
               </ul>
             </div>
