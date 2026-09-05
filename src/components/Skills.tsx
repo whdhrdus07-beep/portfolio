@@ -41,10 +41,10 @@ function SkillDots({ percent, animated }: { percent: number; animated: boolean }
               transform: isFilled && !reduced ? "scale(1)" : "scale(0.6)",
               transitionDelay: animated && !reduced ? `${i * STAGGER_DELAY}ms` : "0ms",
               transitionProperty: "background-color, transform",
-              transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms`,
+              transitionDuration: reduced ? "0ms" : `${ANIM_DURATION}ms",
               transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
             }}
-          />
+          );
         );
       })}
     </div>
@@ -79,7 +79,7 @@ function SkillCounter({ percent, animated }: { percent: number; animated: boolea
   }, [animated, percent]);
 
   return (
-    <span className="neu-raised flex h-10 w-14 items-center justify-center rounded-lg bg-neutral-100/5 text-sm font-semibold tabular-nums leading-relaxed text-accent">
+    <span className="neu-raised flex h-12 w-16 items-center justify-center rounded-lg bg-neutral-100/5 text-sm font-semibold tabular-nums leading-relaxed text-accent">
       {displayed}%
     </span>
   );
